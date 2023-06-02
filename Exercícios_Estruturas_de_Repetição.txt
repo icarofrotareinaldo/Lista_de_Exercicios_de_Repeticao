@@ -1,0 +1,214 @@
+//1) Faça um programa a tabuada de multiplicação de 1 até 10 de um número lido.
+
+n1 = Number(prompt("Digite o número que você deseja saber a tabuada: "));
+for(i=0; i<=10; i++){
+    let n2 = n1 * i;
+    document.write(`${n1} x ${i} = ${n2} <br/>`);
+}
+
+//2) Escreva um programa para calcular o fatorial de um número. Fatorial é produto do número por todos os seus antecessores positivos.
+
+let n = Number(prompt("Digite qual número você deseja descobrir o seu fatorial: "));
+let fat = 1;
+
+for (let i = n; i > 0; i--) {
+    fato *= i;
+}
+document.write(`O fatorial do número ${n} é ${fat}!`)
+
+//3) Escreva um programa que pergunte o depósito inicial e a taxa de juros de uma poupança. Exiba os valores mês a mês para os 24 primeiros meses. Escreva o total ganho com juros no período.
+
+let dep = Number(prompt("Digite o valor do depósito desejado em R$: "));
+let tx = Number(prompt("Digite a taxa de juros da poupança ao mês: "));
+let sald = dep;
+let jur= 0;
+for (t=1; t<=24; t++){
+    jur = saldo * (tx/100);
+    saldo = sald + jur;
+    document.write(`Saldo no ${t}º mês é R$ ${saldo.toFixed(2)} <br/>`);
+}
+let l = sald-dep;
+document.write(`O lucro que foi obtido com os juros é de R$ ${l.toFixed(2)}.`);
+
+//4) Escreva um programa para verificar se um número é primo.
+
+let n = Number(prompt("Digite algúm número"));
+
+if (n==1 || n===2){
+    document.write("O número é primo!");
+}
+else if (n>2){
+    let div=0;
+    for (let i = 2; i<=n; i++){
+        if (n%i==0){
+          div++;
+        }
+    }
+    if(div==2){
+        document.write("O número escolhido é primo!");
+    }
+    else {
+        document.write("O número escolhido não é primo!");
+    }
+}
+
+//5) Faça um programa que peça dois números, base e expoente, calcule e mostre o primeiro número elevado ao segundo número. Não utilize a função de potência da linguagem;
+
+let base = Number(prompt("Digite a base desejada da potência: "));
+let exp = Number(prompt("Digite o expoente desejado da potência: "));
+let p = 1;
+for (let i = 1; i<=exp; i++){
+    p = p * base;
+}
+document.write(`${base} elevado a ${exp} = ${p}`)
+
+//6) Crie um algoritmo para converter um número de decimal para binário.
+
+let n = Number(prompt("Digite um número que será convertido em binário:"));
+let d = n;
+let bin = "";
+while (d > 0) {
+    binario = (d % 2) + bin;
+    d = Math.floor(d / 2);
+  }
+document.write(`O número decimal ${n} em binário é ${bin}`)
+
+//7) Faça um algoritmo estruturado que leia uma quantidade não determinada de números positivos. Calcule a quantidade de números pares e ímpares, a média de valores pares e a média geral dos números lidos. O número que encerrará a leitura será zero.
+
+lert (`Digite quantos números positivos desejar! Quando quiser encerrar a leitura digite "0"!`);
+let n;
+let sn = 0;
+let qn = 0;
+let sPar = 0;
+let sImpar = 0;
+let qPar = 0;
+let qImpar = 0;
+for (;;){
+    n = Number(prompt(`Digite algúm número ou "0" para encerrar: `));
+    if(n!==0){
+        sn+=n;
+        qn++;
+        if (n%2==0){
+            qPar++;
+            sPar += n;
+        }
+        else{
+            qImpar++;
+            sImpar += n;
+        }
+    }
+    else{
+        break;
+    }
+    document.write(`${qn}º número: ${n} <br/>`);
+}
+document.write("<p>");
+let mPar = sPar/qPar;
+let mGer = sn/qn;
+document.write(`A quantidade de números pares é de: ${qPar}. <br/> A quantidade de números ímpares é de: ${qImpar}.<br/>`);
+document.write(`A média dos números pares é de ${mPar.toFixed(2)}. <br/> A média geral é de ${mGer.toFixed(2)}`);
+
+//8) Faça um algoritmo que permita ao usuário informar a idade de quantas pessoas ele desejar. Após isso o algoritmo deve informar a soma das pessoas maiores de idade e a média de idade das pessoas maiores de idade informadas.
+
+lert(`Digite quais e quantas idades desejar! Para encerrar a leitura digite "0"!`);
+let id;
+let sId = 0;
+let qId = 0;
+document.write(`As idades informadas foram:<br/>`);
+for (;;){
+    id = Number(prompt("Digite alguma idade: "));
+    if (id !== 0){
+        if(id>=18){
+            sId+=id;
+            qId++;
+        }
+    }
+    else{
+        break;
+    }
+    document.write(`${id} <br/>`)
+}
+document.write("<p>");
+let mId = sId/qId;
+document.write(`A soma das pessoas maiores de idade é de: ${sId} <br/>`);
+document.write(`A média das pessoas maiores de idade é de: ${mId.toFixed(2)}`);
+
+//9) A sequência de Fibonacci tem papel importante na explicação de fenômenos naturais. Ela é também bastante utilizada para fins estéticos, pela sua reconhecida harmonia. Exemplo disso foi sua utilização na
+construção do Partenon, em Atenas. A sequência dá-se inicialmente por dois números 1. A partir do terceiro elemento usa-se a expressão: elementon = elementon-1 + elementon-2. Construa um algoritmo que imprima na tela os n primeiros
+elementos da sequência de Fibonacci, onde n é informado pelo usuário.
+
+let n = Number(prompt("Digite a quantidade de números que você deseja exibir na sequência de Fibonacci:"))
+let el1 = 1;
+let el2 = 1;
+document.write(`A Sequência de Fibonacci é `);
+for (let i = 1; i<=n; i++){
+    document.write(`${el1}, ${el2}, `);
+    el1 += el2;
+    el2 += el1;
+}
+
+//10)O Departamento Estadual de Meteorologia lhe contratou para desenvolver um programa que leia as um conjunto indeterminado de temperaturas, e informe ao final a menor e a maior temperaturasinformadas, bem como a média das temperaturas.
+
+alert(`Digite quantas temperaturas você desejar! Para encerrar a leitura digite "0"!`);
+let maxTemp = null;
+let minTemp = null;
+let sTemp = 0;
+let qTemp = 0;
+for(;;){
+    tempo = Number(prompt(`Digite uma temperatura ou "0" se desejar encerrar:`));
+    if (temp!=0){
+        sTemp += temp;
+        qTemp++;
+        document.write(temp + "<br/>");
+        if (temp>maxTemp){
+            maxTemp = temp;
+        }
+        if (temp<minTemp){
+            minTemp = temp;
+        }
+    }
+    else {
+        break;
+    }
+}
+document.write(`A maior temperatura apresentada foi de: ${maxTemp}°<br/>`);
+document.write(`A menor temperatura apresentada foi de: ${minTemp}°<br/>`);
+document.write(`A média das temperaturas apresentadas é de: ${sTemp/qTemp}`);
+
+//11) Faça um programa que peça um numero inteiro positivo e em seguida mostre este numero invertido.
+
+n = Number(prompt("Digite qualquer número: "))
+i = n * (-1);
+document.write(`O inverso do número ${n} é ${i}!`);
+
+//12)
+
+//13)Escreva um algoritmo que leia um valor n e represente o valor de n no formato:
+n = 4
+4
+4 4
+4 4 4
+4 4 4 4
+
+let n = Number(prompt("Digite qualquer número:"));
+let s = "";
+document.write(`n = ${n} <br/>`);
+for (let i=1; i<=n; i++){
+    s = s + " " + i;
+    document.write(`${s} <br/>`)
+}
+
+//14)Escreva um algoritmo que leia um valor n e represente o valor de n no formato:
+n = 4
+1
+1 2
+1 2 3
+1 2 3 4
+
+let n1 = Number(prompt("Digite algúm número:"));
+let n2 = "";
+document.write(`n = ${n} <br/>`);
+for (let i=1; i<=n; i++){
+    n2 = n2 + " " + i;
+    document.write(`${s} <br/>`)
+}
